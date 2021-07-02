@@ -45,7 +45,8 @@ select i.invoice_date, c.first_name, c.last_name, i.total
 from invoice i
 join customer c on c.customer_id = i.customer_id;
 
-select c.first_name as CustomerFName, c.last_name, e.first_name as SalesRepName, e.last_name
+select 
+CONCAT  (c.first_name, ' ', c.last_name) AS "Customer Full name", Concat (e.first_name, '', e.last_name) as "Sales Rep Name"
 from customer c
 join employee e on c.support_rep_id = e.employee_id;
 
@@ -55,6 +56,8 @@ join artist a on a.artist_id = al.artist_id;
 
 
 -- EXTRA CREDIT:
+
+
 select name from artist
 order by name desc
 limit 10;
