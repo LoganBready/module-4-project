@@ -16,3 +16,4 @@ def sales_reports(log_file):
 
 sales_reports(log_file)
 #running this will only print the lines of text from the um-server-01.txt file that have the 'mon' value!
+

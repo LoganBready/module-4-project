@@ -53,3 +53,50 @@ select al.title, a.name
 from album al
 join artist a on a.artist_id = al.artist_id;
 
+
+-- EXTRA CREDIT:
+select name from artist
+order by name desc
+limit 10;
+
+select name from artist
+where name like 'Black%';
+
+select name from artist
+where name like '%Black%';
+
+select first_name, birth_date as birthdate
+from employee
+where birth_date = (select max(birth_date) from employee);
+
+select first_name, birth_date as birthdate
+from employee
+where birth_date = (select min(birth_date) from employee);
+
+select count(*)
+from invoice
+where billing_state IN ('CA', 'TX', 'AZ');
+
+select AVG(total) from invoice;
+
+select playlist_track.track_id
+from playlist_track
+join playlist on playlist.playlist_id = playlist_track.playlist_id
+where playlist.name = 'Music';
+
+select t.name
+from track t
+join playlist_track p on p.track_id = t.track_id
+where p.playlist_id = 5;
+
+select t.name, p.name 
+from track t
+join playlist_track pt on t.track_id = pt.track_id
+join playlist p on pt.playlist_id = p.playlist_id;
+
+select t.name, a.title
+from track t
+join album a on t.album_id = a.album_id
+join genre g on g.genre_id = t.genre_id
+where g.name = 'Alternative & Punk'
+
